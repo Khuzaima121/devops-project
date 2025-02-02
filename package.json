@@ -2,10 +2,11 @@
   "name": "term-project-f24",
   "version": "1.0.0",
   "scripts": {
-    "test": "jest",
+     "test": "jest",
     "lint:html": "npx htmlhint '**/*.html'",
-    "lint:css": "npx stylelint '**/*.css' --config stylelint-config-standard",
+    "lint:css": "npx stylelint '**/*.css'--config stylelint-config-standard",
     "build": "npx cpy ./src/*.html dist/src && npx cpy ./styles/*.css dist/styles"
+    
   },
   "repository": {
     "type": "git",
