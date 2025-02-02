@@ -34,12 +34,6 @@ jobs:
       # Install dependencies
       - name: Install dependencies
         run: npm install
-
-      # Build static website using Parcel
-      - name: Make build.sh executable
-        run: chmod +x ./build.sh
-
-      
       - name: Run build.sh script
         run: ./build.sh
       # Upload build artifact
