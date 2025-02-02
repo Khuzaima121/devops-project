@@ -11,22 +11,20 @@ jobs:
     environment: development-env
     permissions:
       contents: write
-      pages: write       
+      pages: write
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
+      - name: Set up Node.js (if needed)
         uses: actions/setup-node@v3
         with:
           node-version: 20
           cache: 'npm'
 
-      - name: Install dependencies
-        # Use npm ci with if condition to install if cache not present
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: npm ci
+      - name: Install dependencies (if needed)
+        run: npm install
 
       - name: Make build.sh executable
         run: chmod +x ./build.sh
@@ -34,10 +32,9 @@ jobs:
       - name: Run build.sh script
         run: ./build.sh
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages (Development)
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
-          # IMPORTANT: Deploy to gh-pages branch
-          destination_branch: gh-pages 
+          destination_branch: gh-pages # Corrected destination branch
