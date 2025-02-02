@@ -24,8 +24,9 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'  # Only install if cache isn't hit
-        run: npm install
+        # Use npm ci with if condition to install if cache not present
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
 
       - name: Make build.sh executable
         run: chmod +x ./build.sh
