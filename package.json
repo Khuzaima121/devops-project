@@ -1,34 +1,29 @@
 {
   "name": "term-project-f24",
   "version": "1.0.0",
-  "description": "Description of your project",  
-  "private": true, 
   "scripts": {
-    "start": "live-server .",
-    "build": "./build.sh",
-    "test": "jest",
+     "test": "jest",
     "lint:html": "npx htmlhint '**/*.html'",
-    "lint:css": "npx stylelint '**/*.css' --config stylelint-config-standard",
-    "lint": "npm run lint:html && npm run lint:css"
+    "lint:css": "npx stylelint '**/*.css'--config stylelint-config-standard",
+    "build": "./build.sh"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Khuzaima121/devops-project.git"
   },
   "keywords": [],
-  "author": "Your Name", 
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Khuzaima121/devops-project/issues"
   },
-  "devDependencies": {
+  "devDependencies": {  
     "htmlhint": "^1.0.0",
     "stylelint": "^14.0.0",
     "stylelint-config-standard": "^25.0.0",
-    "jest": "^29.0.0"
+    "jest": "^29.0.0" 
   },
-  "dependencies": {
-    "live-server": "^1.2.2"  
-  },
-  "homepage": "https://github.com/Khuzaima121/devops-project#readme"
+  "homepage": "https://github.com/Khuzaima121/devops-project#readme",
+  "main": "index.js",
+  "description": ""
 }
