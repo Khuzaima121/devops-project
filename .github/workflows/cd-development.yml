@@ -25,7 +25,7 @@ jobs:
 
       - name: Install dependencies (if needed)
         run: npm install
-
+  
       - name: Run build.sh script
         run: ./build.sh
 
