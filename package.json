@@ -5,8 +5,7 @@
      "test": "jest",
     "lint:html": "npx htmlhint '**/*.html'",
     "lint:css": "npx stylelint '**/*.css'--config stylelint-config-standard",
-    "build": "npx cpy ./src/*.html dist/src && npx cpy ./styles/*.css dist/styles"
-    
+    "build": ""
   },
   "repository": {
     "type": "git",
