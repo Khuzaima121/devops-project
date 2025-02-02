@@ -17,22 +17,26 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js (if needed)
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
           cache: 'npm'
 
-      - name: Install dependencies (if needed)
+      - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'  # Only install if cache isn't hit
         run: npm install
+
       - name: Make build.sh executable
         run: chmod +x ./build.sh
+
       - name: Run build.sh script
         run: ./build.sh
 
-      - name: Deploy to GitHub Pages (Development)
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
-          destination_branch: develop 
+          # IMPORTANT: Deploy to gh-pages branch
+          destination_branch: gh-pages 
