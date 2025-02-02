@@ -11,7 +11,7 @@ jobs:
     environment: development-env
     permissions:
       contents: write
-      pages: write
+      pages: write       
 
     steps:
       - name: Checkout code
@@ -25,7 +25,6 @@ jobs:
 
       - name: Install dependencies (if needed)
         run: npm install
-
       - name: Make build.sh executable
         run: chmod +x ./build.sh
 
@@ -37,4 +36,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
-          destination_branch: gh-pages # Corrected destination branch
+          destination_branch: develop 
