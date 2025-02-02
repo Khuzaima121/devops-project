@@ -36,10 +36,12 @@ jobs:
         run: npm install
 
       # Build static website using Parcel
-      - name: Build website
-        run: |
-          npx parcel build "./src/index.html" --dist-dir "./dev" --public-url "./"
+      - name: Make build.sh executable
+        run: chmod +x ./build.sh
+
       
+      - name: Run build.sh script
+        run: ./build.sh
       # Upload build artifact
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
