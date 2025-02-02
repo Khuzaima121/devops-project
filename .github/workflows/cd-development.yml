@@ -34,13 +34,17 @@ jobs:
       # Install dependencies
       - name: Install dependencies
         run: npm install
-      - name: Run build.sh script
-        run: ./build.sh
+
+      # Build static website using Parcel
+      - name: Build website
+        run: |
+          npx parcel build "./src/index.html" --dist-dir "./dev" --public-url "./"
+      
       # Upload build artifact
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./build"  # The build output folder
+          path: "./dev"  # The build output folder
 
   deploy-develop-job:
     name: Deploy to GitHub Pages
